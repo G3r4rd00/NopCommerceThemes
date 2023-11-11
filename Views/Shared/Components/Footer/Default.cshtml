@@ -1,0 +1,161 @@
+﻿@model FooterModel
+
+@using Nop.Core
+@using Nop.Core.Domain.Tax
+@using Nop.Core.Domain.Topics
+@using Nop.Services.Configuration
+
+@inject IStoreContext storeContext
+@inject IWorkContext workContext
+@inject ISettingService settingService
+
+@{
+    var storeId = (await storeContext.GetCurrentStoreAsync()).Id;
+    var removeDesignedBy = await settingService.GetSettingByKeyAsync("motionthemesettings.removedesignedby", false, storeId, true);
+    var removeCopyright = await settingService.GetSettingByKeyAsync("motionthemesettings.removecopyright", false, storeId, true);
+}
+
+<div class="footer">
+    <div class="footer-top">
+        <div class="footer-centering">
+            <div class="footer-block footer-block-first">
+                <h3>@T("SevenSpikes.Themes.Motion.Common.Contact")</h3>
+                <ul class="footer-menu">
+                    <li class="phone">@T("SevenSpikes.Themes.Motion.Common.Phone")</li>
+                    <li class="mobile">@T("SevenSpikes.Themes.Motion.Common.Mobile")</li>
+                    <li class="email">@T("SevenSpikes.Themes.Motion.Common.EmailName")@T("SevenSpikes.Themes.Motion.Common.EmailAt")@T("SevenSpikes.Themes.Motion.Common.EmailDomain")</li>
+                    <li class="skype">@T("SevenSpikes.Themes.Motion.Common.Skype")</li>
+                </ul>
+            </div>
+            <div class="footer-block">@await Component.InvokeAsync("TopicBlock", new { systemName = "HomePageText" })</div>
+            <div class="footer-block social-sharing">
+                <h3>@T("SevenSpikes.Themes.Motion.Common.Social")</h3>
+                @await Component.InvokeAsync(typeof(SocialButtonsViewComponent))
+            </div>
+            <div class="footer-block subscribe-to-newsletter">
+                @await Component.InvokeAsync(typeof(NewsletterBoxViewComponent))
+            </div>
+        </div>
+    </div>
+    <div class="footer-middle">
+        <div class="footer-centering">
+            <div class="footer-block footer-block-first">
+                <h3>@T("SevenSpikes.Themes.Motion.Common.CompanyInfo")</h3>
+                <ul class="footer-menu">
+                    @foreach (var topic in Model.Topics.Where(x => x.IncludeInFooterColumn1).ToList())
+                    {
+                        <li><a href="@(Url.RouteUrl<Topic>(new { SeName = topic.SeName }))">@topic.Name</a></li>
+                    }
+                </ul>
+            </div>
+            <div class="footer-block">
+                <h3>@T("SevenSpikes.Themes.Motion.Common.CustomerServices")</h3>
+                <ul class="footer-menu">
+                    @if (Model.DisplayContactUsFooterItem)
+                    {
+                        <li><a href="@Url.RouteUrl("ContactUs")">@T("ContactUs")</a> </li>
+                    }
+                    @foreach (var topic in Model.Topics.Where(x => x.IncludeInFooterColumn2).ToList())
+                    {
+                        <li><a href="@(Url.RouteUrl<Topic>(new { SeName = topic.SeName }))">@topic.Name</a></li>
+                    }
+                    @if (Model.SitemapEnabled && Model.DisplaySitemapFooterItem)
+                    {
+                        <li><a href="@Url.RouteUrl("Sitemap")">@T("Sitemap")</a></li>
+                    }
+                </ul>
+            </div>
+            <div class="footer-block">
+                <h3>@T("Account.MyAccount")</h3>
+                <ul class="footer-menu">
+                    @if (Model.DisplayCustomerInfoFooterItem)
+                    {
+                        <li><a href="@Url.RouteUrl("CustomerInfo")">@T("Account.CustomerInfo")</a></li>
+                    }
+                    @if (Model.DisplayCustomerAddressesFooterItem)
+                    {
+                        <li><a href="@Url.RouteUrl("CustomerAddresses")">@T("Account.CustomerAddresses")</a></li>
+                    }
+                    @if (Model.DisplayCustomerOrdersFooterItem)
+                    {
+                        <li><a href="@Url.RouteUrl("CustomerOrders")">@T("Account.CustomerOrders")</a></li>
+                    }
+                    @if (Model.WishlistEnabled && Model.DisplayWishlistFooterItem)
+                    {
+                        <li><a href="@Url.RouteUrl("Wishlist")">@T("Wishlist")</a></li>
+                    }
+                    @if (Model.AllowCustomersToApplyForVendorAccount && Model.DisplayApplyVendorAccountFooterItem)
+                    {
+                        <li><a href="@Url.RouteUrl("ApplyVendorAccount")">@T("Vendors.ApplyAccount")</a></li>
+                    }
+                    @foreach (var topic in Model.Topics.Where(x => x.IncludeInFooterColumn3).ToList())
+                    {
+                        <li><a href="@(Url.RouteUrl<Topic>(new { SeName = topic.SeName }))">@topic.Name</a></li>
+                    }
+                </ul>
+            </div>
+            <div class="footer-block">
+                <h3>@T("SevenSpikes.Themes.Motion.Common.OurOffers")</h3>
+                <ul class="footer-menu">
+                    @if (Model.NewProductsEnabled && Model.DisplayNewProductsFooterItem)
+                    {
+                        <li><a href="@Url.RouteUrl("NewProducts")">@T("Products.NewProducts")</a></li>
+                    }
+                    @if (Model.RecentlyViewedProductsEnabled && Model.DisplayRecentlyViewedProductsFooterItem)
+                    {
+                        <li><a href="@Url.RouteUrl("RecentlyViewedProducts")">@T("Products.RecentlyViewedProducts")</a></li>
+                    }
+                    @if (Model.CompareProductsEnabled && Model.DisplayCompareProductsFooterItem)
+                    {
+                        <li><a href="@Url.RouteUrl("CompareProducts")">@T("Products.Compare.List")</a></li>
+                    }
+                    @if (Model.SearchEnabled && Model.DisplayProductSearchFooterItem)
+                    {
+                        <li><a href="@Url.RouteUrl("ProductSearch")">@T("Search")</a></li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="footer-centering">
+            <div class="accepted-payment-methods">
+                <ul>
+                    <li class="method1"></li>
+                    <li class="method2"></li>
+                    <li class="method3"></li>
+                    <li class="method4"></li>
+                    <li class="method5"></li>
+                </ul>
+            </div>
+            <div class="footer-disclaimer">
+                @T("Content.CopyrightNotice", DateTime.Now.Year, Model.StoreName)
+            </div>
+            @if (!Model.HidePoweredByNopCommerce)
+            {
+            	<div class="footer-powered-by">
+	                @*Would you like to remove the "Powered by nopCommerce" link in the bottom of the footer?
+	                    Please find more info at https://www.nopcommerce.com/nopcommerce-copyright-removal-key*@
+	                Powered by <a href="@(OfficialSite.Main)" target="_blank" @(Model.IsHomePage ? string.Empty : "rel=nofollow")>nopCommerce</a>
+	            </div>
+            }
+            @if (!removeDesignedBy)
+            {
+                <div class="footer-designed-by">
+                    Designed by <a href="https://www.nop-templates.com/" target="_blank">Nop-Templates.com</a>
+                </div>
+            }
+            @if (Model.DisplayTaxShippingInfoFooter)
+            {
+                var inclTax = await workContext.GetTaxDisplayTypeAsync() == TaxDisplayType.IncludingTax;
+                <span class="footer-tax-shipping">
+                    @T(inclTax ? "Footer.TaxShipping.InclTax" : "Footer.TaxShipping.ExclTax", Url.RouteTopicUrl("shippinginfo"))
+                </span>
+            }
+            <div class="footer-store-theme">
+                @await Component.InvokeAsync(typeof(StoreThemeSelectorViewComponent))
+            </div>
+            @await Component.InvokeAsync(typeof(WidgetViewComponent), new { widgetZone = PublicWidgetZones.Footer, additionalData = Model })
+        </div>
+    </div>
+</div>
