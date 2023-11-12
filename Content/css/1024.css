@@ -145,7 +145,7 @@
             top: 50%;
             left: 7px;
             margin-top: -18px;
-            background: #46c688 url(../img/icon-cart.png) no-repeat center;
+            background: #9f94f7 url(../img/icon-cart.png) no-repeat center;
             width: 35px;
             height: 35px;
             border-radius: 18px;
@@ -266,7 +266,7 @@
         box-shadow: 0 1px 0 0 #bbb;
     }
     .mini-shopping-cart button.checkout-button {
-        background: #46c688;
+        background: #9f94f7;
         border: 1px solid #49bf86;
         color: #fff;
         box-shadow: 0 1px 0 0 #42ab78;
@@ -316,7 +316,7 @@
 	    height: 36px;
 	    border: none;
 	    overflow: hidden;
-	    background: #46c688 url('../img/icon-search.png') center no-repeat;
+	    background: #9f94f7 url('../img/icon-search.png') center no-repeat;
 	    text-indent: 999px;
         margin-left: -1px;
         -webkit-transition: all .2s ease-in-out;
@@ -343,7 +343,7 @@
         min-height: 50px;
     }
     .header-menu {
-        background: url(../img/pattern-nav.png) left top #46c688;
+        background: url(../img/pattern-nav.png) left top #9f94f7;
         text-align: center;
         font-size: 0;
         z-index: 1001;
@@ -455,7 +455,7 @@
             left: 0;
             height: 0;
             width: 5px;
-            background: #46c688;
+            background: #9f94f7;
             -webkit-transition: all .2s ease-in-out;
             transition: all .2s ease-in-out;
             z-index: 3;

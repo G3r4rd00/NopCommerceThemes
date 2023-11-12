@@ -35,7 +35,7 @@
     }
     .responsive-nav-wrapper {
         position: relative;
-        background: #46c688 url(../img/pattern-nav.png) left top;
+        background: #9f94f7 url(../img/pattern-nav.png) left top;
         width: 100%;
         box-shadow: 0 1px 3px 1px rgba(0,0,0,0.15);
         text-align: center;
@@ -146,7 +146,7 @@
     }
 
     .header-menu .close-menu {
-        background: #46c688 url(../img/pattern-nav.png) left top;
+        background: #9f94f7 url(../img/pattern-nav.png) left top;
         cursor: pointer;
     }
     .close-menu span {
@@ -220,7 +220,7 @@
     }
 
     .header-menu ul li.back-button {
-        background: #46c688 url(../img/pattern-nav.png) left top;
+        background: #9f94f7 url(../img/pattern-nav.png) left top;
     }
     .header-menu .back-button span {
         background: url(../img/nav-item-close.png) no-repeat 25px center;
@@ -264,7 +264,7 @@
         left: 0;
         padding: 7px;
         width: 100%;
-        background: #46c688 url(../img/pattern-nav.png) left top;
+        background: #9f94f7 url(../img/pattern-nav.png) left top;
         box-shadow: -1px 2px 1px rgba(0,0,0,0.3);
         z-index: 9999999;
         text-align: center;
@@ -299,7 +299,7 @@
 	    height: 34px;
 	    border: none;
 	    overflow: hidden;
-	    background: #46c688 url('../img/icon-search.png') center no-repeat;
+	    background: #9f94f7 url('../img/icon-search.png') center no-repeat;
 	    text-indent: 999px;
     }
 
