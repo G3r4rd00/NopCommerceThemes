@@ -267,9 +267,9 @@
     }
     .mini-shopping-cart button.checkout-button {
         background: #9f94f7;
-        border: 1px solid #49bf86;
+        border: 1px solid #9f94f7;
         color: #fff;
-        box-shadow: 0 1px 0 0 #42ab78;
+        box-shadow: 0 1px 0 0 #9f94f7;
     }
     .mini-shopping-cart button.cart-button,
     .mini-shopping-cart button.checkout-button {

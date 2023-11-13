@@ -3786,10 +3786,10 @@ label {
     transition: background-color .2s ease-in-out;
 }
 .continue-shopping-wrap button[type="submit"]:hover {
-    background-color: #51e29c;
+    background-color: #9f94f7;
 }
 .continue-shopping-wrap:hover:before {
-    background: #51e29c;
+    background: #9f94f7;
 }
 
 .checkout-attributes {

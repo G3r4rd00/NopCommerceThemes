@@ -218,10 +218,10 @@ div.payment-method,
 }
 
 .filter-content:after {
-    right: auto;
+	right: auto;
 	left: -1px;
-    border-width: 0 0 6px 134px;
-    border-color: transparent transparent transparent #46c688;
+	border-width: 0 0 6px 134px;
+	border-color: transparent transparent transparent #9f94f7;
 }
 .product-filter input[type="checkbox"]+label {
     padding: 10px 42px 10px 10px;

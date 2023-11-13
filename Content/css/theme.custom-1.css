@@ -13,7 +13,7 @@
 .topic-html-content a,
 .topic-page a,
 .custom-tab a {
-  color: #facccc;
+  color: #9f94f7;
 }
 .eu-cookie-bar-notification button,
 .fieldset .title strong:before,
@@ -109,22 +109,22 @@
 .newsletter-subscribe-popup .newsletter-email button,
 .button-2.apply-shipping-button,
 input.estimate-shipping-radio:checked + label {
-  background-color: #facccc;
+  background-color: #9f94f7;
 }
 input.estimate-shipping-radio:checked + label {
-  border-color: #facccc;
+  border-color: #9f94f7;
 }
 .filtersGroupPanel:after,
 .filter-content:after {
-  border-color: transparent #facccc transparent transparent;
+  border-color: transparent #9f94f7 transparent transparent;
 }
 html[dir="rtl"] .filtersGroupPanel:after,
 html[dir="rtl"] .filter-content:after {
-  border-color: transparent transparent transparent #facccc;
+  border-color: transparent transparent transparent #9f94f7;
 }
 .filtersGroupPanel,
 .filter-content {
-  border-top: 1px solid #facccc;
+  border-top: 1px solid #9f94f7;
 }
 .block .view-all a,
 .write-review .button-1,
@@ -147,13 +147,13 @@ html[dir="rtl"] .filter-content:after {
 .ropc .complete-button button,
 .contact-vendor-button,
 .button-2.apply-shipping-button {
-  border: 1px solid #facccc;
-  box-shadow: 0 1px 0 0 #facccc;
+  border: 1px solid #9f94f7;
+  box-shadow: 0 1px 0 0 #9f94f7;
 }
 @media all and (max-width: 1024px) {
   .nopAjaxFilters7Spikes .close-filters span,
   .nopAjaxFilters7Spikes .filter-block {
-    border-bottom: 1px solid #facccc;
+    border-bottom: 1px solid #9f94f7;
   }
 }
 .continue-shopping-wrap button:hover,
@@ -181,6 +181,6 @@ html[dir="rtl"] .filter-content:after {
 .news-items .read-more:hover,
 .contact-vendor-button:hover,
 .button-2.apply-shipping-button:hover {
-  background-color: #fce3e3;
-  border-color: #fce3e3;
+  background-color: #b4acf9;
+  border-color: #b4acf9;
 }
