@@ -52,8 +52,26 @@
                                             @Html.Raw(shippingMethod.Description)
                                         </div>
                                     }
+
+                                    @* Imagenes transportistas*@
+                                    @if (shippingMethod.Name.ToLower().Contains("nacex")) {
+                                        <img src="~/images/nacex.jpg" alt="Descripción de la imagen" width="100" height="50">
+                                    }
+                                    else if (shippingMethod.Name.ToLower().Contains("correos") && shippingMethod.Name.ToLower().Contains("express")){
+                                        <img src="~/images/correosexpress.jpg" alt="Descripción de la imagen" width="100" height="50">
+                                    }
+                                    else if (shippingMethod.Name.ToLower().Contains("correos") && !shippingMethod.Name.ToLower().Contains("express")){
+                                        <img src="~/images/correos.jpg" alt="Descripción de la imagen" width="100" height="50">
+                                    }
+                                    else if (shippingMethod.Name.ToLower().Contains("gls")){
+                                        <img src="~/images/gls.jpg" alt="Descripción de la imagen" width="100" height="50">
+                                    }
+                                    else if (shippingMethod.Name.ToLower().Contains("nacex")){
+                                        <img src="~/images/nacex.jpg" alt="Descripción de la imagen" width="100" height="50">
+                                    }
                                 </li>
                             }
+                            
                         </ul>
                         if (Model.NotifyCustomerAboutShippingFromMultipleLocations)
                         {
