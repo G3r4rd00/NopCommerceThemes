@@ -8,6 +8,46 @@
     NopHtml.AppendPageCssClassParts("html-checkout-page");
     NopHtml.AppendPageCssClassParts("html-shipping-method-page");
 }
+
+
+<style>
+    /* Estilo general de la lista */
+    .method-list {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between; /* Ajusta según sea necesario */
+    }
+
+        /* Estilo de cada elemento de la lista */
+        .method-list li {
+            width: calc(33.33% - 20px); /* 20px para los márgenes */
+            box-sizing: border-box;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+
+    /* Estilo del nombre del método */
+    .method-name {
+        margin-bottom: 10px;
+    }
+
+    /* Estilo de la descripción del método */
+    .method-description {
+        color: #555;
+    }
+
+    /* Estilo de las imágenes de los transportistas */
+    .method-list img {
+        margin-top: 10px;
+        display: block; /* Para evitar espacios innecesarios en la parte inferior de las imágenes */
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+
 <div class="page checkout-page shipping-method-page">
     @await Component.InvokeAsync(typeof(CheckoutProgressViewComponent), new { step = CheckoutProgressStep.Shipping })
     <div class="page-title">
@@ -46,6 +86,7 @@
                                         <input id="shippingoption_@(i)" type="radio" name="shippingoption" value="@(shippingMethod.Name)___@(shippingMethod.ShippingRateComputationMethodSystemName)" checked="@shippingMethod.Selected" />
                                         <label for="shippingoption_@(i)">@T("Checkout.SelectShippingMethod.MethodAndFee", shippingMethod.Name, shippingMethod.Fee)</label>
                                     </div>
+
                                     @if (!string.IsNullOrEmpty(shippingMethod.Description))
                                     {
                                         <div class="method-description">
@@ -53,25 +94,29 @@
                                         </div>
                                     }
 
-                                    @* Imagenes transportistas*@
-                                    @if (shippingMethod.Name.ToLower().Contains("nacex")) {
-                                        <img src="~/images/nacex.jpg" alt="Descripción de la imagen" width="100" height="50">
+                                    @* Imágenes transportistas *@
+                                    @if (shippingMethod.Name.ToLower().Contains("nacex"))
+                                    {
+                                        <img src="~/images/nacex.jpg" alt="Nacex" width="100" height="50">
                                     }
-                                    else if (shippingMethod.Name.ToLower().Contains("correos") && shippingMethod.Name.ToLower().Contains("express")){
-                                        <img src="~/images/correosexpress.jpg" alt="Descripción de la imagen" width="100" height="50">
+                                    else if (shippingMethod.Name.ToLower().Contains("correos") && shippingMethod.Name.ToLower().Contains("express"))
+                                    {
+                                        <img src="~/images/correosexpress.jpg" alt="Correos Express" width="100" height="50">
                                     }
-                                    else if (shippingMethod.Name.ToLower().Contains("correos") && !shippingMethod.Name.ToLower().Contains("express")){
-                                        <img src="~/images/correos.jpg" alt="Descripción de la imagen" width="100" height="50">
+                                    else if (shippingMethod.Name.ToLower().Contains("correos") && !shippingMethod.Name.ToLower().Contains("express"))
+                                    {
+                                        <img src="~/images/correos.jpg" alt="Correos" width="100" height="50">
                                     }
-                                    else if (shippingMethod.Name.ToLower().Contains("gls")){
-                                        <img src="~/images/gls.jpg" alt="Descripción de la imagen" width="100" height="50">
+                                    else if (shippingMethod.Name.ToLower().Contains("gls"))
+                                    {
+                                        <img src="~/images/gls.jpg" alt="GLS" width="100" height="50">
                                     }
-                                    else if (shippingMethod.Name.ToLower().Contains("nacex")){
-                                        <img src="~/images/nacex.jpg" alt="Descripción de la imagen" width="100" height="50">
+                                    else
+                                    {
+                                        <img src="~/images/default.jpg" alt="Default Image" width="100" height="50">
                                     }
                                 </li>
                             }
-                            
                         </ul>
                         if (Model.NotifyCustomerAboutShippingFromMultipleLocations)
                         {
