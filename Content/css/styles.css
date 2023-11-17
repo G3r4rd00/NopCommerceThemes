@@ -1,4 +1,14 @@
-﻿.continue-shopping-wrap button[type="submit"] {
+﻿.oculto {
+    display: none !important; /* Inicialmente oculto */
+}
+
+.div-boton {
+    cursor: pointer; /* Cambia el cursor al estilo de un enlace al pasar el mouse sobre el div */
+    padding: 10px; /* Añade un poco de relleno para que el div sea más grande y fácil de hacer clic */
+    border: 1px solid #ccc; /* Puedes agregar bordes u otros estilos de diseño según tus necesidades */
+}
+
+.continue-shopping-wrap button[type="submit"] {
     background: #9f94f7 url(../Themes/Motion/Content/img/icon-add-to-cart.png) no-repeat left center;
 }
 
@@ -3444,7 +3454,7 @@ label {
 	vertical-align: top;
 }
 .section {
-    padding: 10px;
+    padding: 0px 0px 10px 0px;
     box-shadow: 0 1px 3px 1px rgba(0,0,0,.15);
     display: inline-block;
 }
@@ -3672,7 +3682,7 @@ label {
     border: 1px solid #49bf86;
     color: #fff;
     box-shadow: 0 1px 0 0 #42ab78;
-    padding: 11px 34px;
+    padding: 10px;
     font-size: 14px;
     margin: 0 auto;
     -webkit-transition: all .2s ease-in-out;
@@ -3937,7 +3947,7 @@ label {
 }
 
 .checkout-page .section {
-	margin: 0 0 30px;
+	margin: 0px;
     display: block;
     box-shadow: none;
     width: 100% !important;
