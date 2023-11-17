@@ -1,6 +1,52 @@
-﻿.oculto {
+﻿/* Estilo general de la lista */
+.method-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Ajusta según sea necesario */
+}
+
+    /* Estilo de cada elemento de la lista */
+    .method-list li {
+        width: calc(50% - 20px); /* 20px para los márgenes */
+        box-sizing: border-box;
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        padding: 10px;
+    }
+
+/* Estilo del nombre del método */
+.method-name {
+    display: flex;
+    align-items: center;
+}
+
+/* Estilo del logotipo del método de pago */
+.payment-logo img {
+    max-width: 100px; /* Ajusta según sea necesario */
+    max-height: 50px; /* Ajusta según sea necesario */
+}
+
+/* Estilo de los detalles del método de pago */
+.payment-details {
+    margin-left: 10px; /* Ajusta según sea necesario */
+}
+
+/* Estilo de la descripción del método de pago */
+.payment-description {
+    color: #555;
+}
+
+/* Estilo del radio button */
+.method-list input[type="radio"] {
+    margin-right: 5px; /* Ajusta según sea necesario */
+}
+
+.oculto {
     display: none !important; /* Inicialmente oculto */
 }
+
 
 .div-boton {
     cursor: pointer; /* Cambia el cursor al estilo de un enlace al pasar el mouse sobre el div */
