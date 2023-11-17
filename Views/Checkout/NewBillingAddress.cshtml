@@ -29,3 +29,9 @@
         @await Html.PartialAsync("_CreateOrUpdateAddress", Model.BillingNewAddress, dataDictAddress)
     }
 </div>
+
+<div class="buttons">
+   @* <button id="billingaddress-save-button" type="button" class="button-1" style="display: none" onclick="CheckoutBilling.saveEditAddress('@(storeLocation)checkout/SaveEditBillingAddress/'); return false;">@T("Common.Save")</button>*@
+    <button id="billingaddress-cancel-button" type="button" class="button-1" onclick="setLocation('@Url.RouteUrl("CheckoutBillingAddress")')">@T("Common.Cancel")</button>
+    <button id="billingaddress-next-button" type="submit" name="nextstep" class="button-1 new-address-next-step-button">@T("Checkout.NextButton")</button>
+</div>
