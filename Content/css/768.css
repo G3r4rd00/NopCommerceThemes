@@ -8,6 +8,10 @@
 
 /* GLOBAL STYLES */
 
+    .shipping-method .shipping-img {
+        float: left;
+    }
+
     .page {
 	    clear: both;
 	    text-align: left;
@@ -211,7 +215,7 @@
 
     .order-progress li {
 	    display: inline-block;
-	    margin: 0 35px;
+	    margin: 0 10px;
     }
 
     .shopping-cart-page .common-buttons,

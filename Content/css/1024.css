@@ -735,10 +735,10 @@
     }
     .shopping-cart-page .totals {
 	    margin: 0;
-        width: 215px;
+        width: 300px;
     }
     .cart-collaterals {
-        width: 710px;
+        /*width: 710px;*/
         margin: 0;
     }
     /*.cart-collaterals .deals {

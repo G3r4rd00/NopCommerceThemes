@@ -1,5 +1,7 @@
 @media all and (max-width: 1024px) {
-    
+    .checkout-buttons {
+        text-align: right;
+    }
 
     .header-bottom .search-box {
         display: none;
@@ -263,9 +265,7 @@
         display: none;
     }
 
-    .checkout-data .payment-details{
-        display:none;
-    }
+    
 
     /* SEARCH */
     .store-search-box {

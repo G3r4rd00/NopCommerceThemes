@@ -5,15 +5,15 @@
 =====================================================*/
 
 @media all and (min-width: 481px) {
-	
-/* HEADER */
 
-    
-.eu-cookie-bar-notification {
-    width: 450px;
-    max-width: 95%;
-    margin-left: -225px;
-}
+   
+
+    /* HEADER */
+    .eu-cookie-bar-notification {
+        width: 450px;
+        max-width: 95%;
+        margin-left: -225px;
+    }
 /* FOOTER */
 
     .footer-middle:before {
