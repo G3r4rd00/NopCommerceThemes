@@ -1,4 +1,5 @@
 @media all and (max-width: 1024px) {
+    
 
     .header-bottom .search-box {
         display: none;
@@ -249,14 +250,24 @@
     }
 
 /* CATEGORY PAGE & ITEM GRIDS */
-
+    .category-page .category-description{
+        display: none;
+    }
     .product-viewmode,
     .product-page-size {
         display: none !important;
     }
 
-/* SEARCH */
+/*CHECKOUT*/
+    .order-summary-content .common-buttons {
+        display: none;
+    }
 
+    .checkout-data .payment-details{
+        display:none;
+    }
+
+    /* SEARCH */
     .store-search-box {
         display: none;
         position: fixed;

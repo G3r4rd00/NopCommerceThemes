@@ -3713,7 +3713,8 @@ label {
 }
 .order-progress li {
 	display: inline-block;
-	margin: 10px;
+	/*margin: 10px;*/
+    width: 64px;
 }
 .order-progress a {
     display: block;
