@@ -41,7 +41,6 @@
 
     /* Estilo de las imágenes de los transportistas */
     .method-list img {
-        margin-top: 10px;
         display: block; /* Para evitar espacios innecesarios en la parte inferior de las imágenes */
         margin-left: auto;
         margin-right: auto;
@@ -82,7 +81,7 @@
                             {
                                 var shippingMethod = Model.ShippingMethods[i];
                                 <li class="div-boton">
-                                    <div style="float:left; width:100px">
+                                    <div style="float:left; width:100px;margin-right:10px">
                                         @* Imágenes transportistas *@
                                         @if (shippingMethod.Name.ToLower().Contains("nacex"))
                                         {
