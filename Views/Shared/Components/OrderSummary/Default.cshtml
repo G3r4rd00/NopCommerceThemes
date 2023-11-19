@@ -251,12 +251,12 @@
                 @if (Model.IsEditable)
                 {
                     <div class="common-buttons">
-                        @* <div class="update-cart-wrap">
+                        <div class="update-cart-wrap">
                         	<button type="submit" name="updatecart" id="updatecart" class="button-2 update-cart-button">@T("ShoppingCart.UpdateCart")</button>
                         </div>
                         <div class="continue-shopping-wrap">
                             <button type="submit" name="continueshopping" class="button-2 continue-shopping-button">@T("ShoppingCart.ContinueShopping")</button>
-                        </div> *@
+                        </div>
                         @await Component.InvokeAsync(typeof(ShoppingCartEstimateShippingViewComponent))
                     </div>
                     @await Html.PartialAsync("_CheckoutAttributes", Model)
