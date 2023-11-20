@@ -1,4 +1,27 @@
 ﻿
+/* Ocultar el botón de radio original */
+#checkout-shipping-method-load input[type="radio"] {
+    display: none;
+}
+
+#opc-payment_method input[type="radio"] {
+    display: none;
+}
+
+.div-boton-hoverstyle:hover {
+    background-color: lightgrey;
+}
+
+
+.order-summary-content .update-cart-wrap {
+    display: none;
+}
+
+.order-summary-content .continue-shopping-wrap {
+    display: none;
+}
+
+
 .shipping-method .shipping-img {
     width: 100px;
     margin-right: 10px;

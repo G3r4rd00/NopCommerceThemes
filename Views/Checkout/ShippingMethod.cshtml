@@ -69,7 +69,7 @@
                                         }
                                     </div>
                                     <div class="method-name">
-                                        <input id="shippingoption_@(i)" type="radio" name="shippingoption" value="@(shippingMethod.Name)___@(shippingMethod.ShippingRateComputationMethodSystemName)" checked="@shippingMethod.Selected" />
+                                        <input id="shippingoption_@(i)" type="radio" name="shippingoption" value="@(shippingMethod.Name)___@(shippingMethod.ShippingRateComputationMethodSystemName)" @* checked="@shippingMethod.Selected" *@ />
                                         <label for="shippingoption_@(i)">@T("Checkout.SelectShippingMethod.MethodAndFee", shippingMethod.Name, shippingMethod.Fee)</label>
                                         @if (!string.IsNullOrEmpty(shippingMethod.Description))
                                         {
