@@ -1,4 +1,23 @@
 @media all and (max-width: 1024px) {
+    .registration-page .inputs > label{
+        width: 295px;
+    }
+    #checkout-step-billing .edit-address select {
+        width: 100%;
+    }
+
+    #checkout-step-billing .edit-address input {
+        width: 100%;
+    }
+
+    .edit-address label{
+        text-align:left;
+    }
+
+    .edit-address span {
+        text-align: left;
+    }
+
     .checkout-buttons {
         text-align: right;
     }
