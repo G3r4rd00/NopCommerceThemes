@@ -1,4 +1,15 @@
 ﻿
+
+
+
+.payment-method .method-list li{
+    width: 100%;
+}
+
+.checkout-data .payment-details .payment-description {
+    display: none;
+}
+
 /* Ocultar el botón de radio original */
 #checkout-shipping-method-load input[type="radio"] {
     display: none;
@@ -106,7 +117,6 @@
 /* Estilo de los detalles del método de pago */
 .payment-details {
     margin-left: 10px; /* Ajusta según sea necesario */
-    width: 70%;
 }
 
 /* Estilo de la descripción del método de pago */
@@ -148,6 +158,12 @@
 
 .topic-block {
     display: none;
+}   
+
+.cart-info .payment_sprite {
+    width: 100%;
+    float: left;
+    margin-top: 20px;
 }
 
 .footer-designed-by {
@@ -158,9 +174,6 @@
     display: none;
 }
 
-.accepted-payment-methods {
-    display: none;
-}
 
 .social-sharing {
     display: none;

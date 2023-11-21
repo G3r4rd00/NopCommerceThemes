@@ -1,4 +1,8 @@
 @media all and (max-width: 1024px) {
+    .cart-info .payment_sprite {
+        display: none;
+    }
+
     .gender{
         width:100%;
         max-width:200px;
@@ -6,6 +10,7 @@
         .gender > * {
             width: 50% !important;
         }
+
     .inputs input[type="text"],
     .inputs input[type="password"],
     .inputs input[type="email"],
