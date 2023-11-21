@@ -191,10 +191,12 @@
                         PaymentInfo.init('#co-payment-info-form', '@(storeLocation)checkout/OpcSavePaymentInfo/');
                     </script>
                     <div class="buttons" id="payment-info-buttons-container">
-                        <p class="back-link">
+                      @*  <p class="back-link">
                             <a href="#" onclick="Checkout.back(); return false;"><small>&laquo; </small>@T("Common.Back")</a>
-                        </p>
+                        </p>*@
+
                         <button type="button" class="button-1 payment-info-next-step-button" onclick="PaymentInfo.save()">@T("Common.Continue")</button>
+
                         <span class="please-wait" id="payment-info-please-wait" style="display: none;">@T("Common.LoadingNextStep")</span>
                     </div>
                 </div>
