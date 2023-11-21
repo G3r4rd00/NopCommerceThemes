@@ -1,6 +1,22 @@
 @media all and (max-width: 1024px) {
-    .registration-page .inputs > label{
-        width: 295px;
+    .gender{
+        width:100%;
+        max-width:200px;
+    }
+        .gender > * {
+            width: 50% !important;
+        }
+    .inputs input[type="text"],
+    .inputs input[type="password"],
+    .inputs input[type="email"],
+    .inputs input[type="tel"],
+    .inputs select, .inputs textarea {
+        width: 100%;
+    }
+
+    .registration-page .inputs > label {
+        width: 100%;
+        text-align: left;
     }
     #checkout-step-billing .edit-address select {
         width: 100%;

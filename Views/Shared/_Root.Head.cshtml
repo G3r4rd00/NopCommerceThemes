@@ -96,7 +96,7 @@
 <body class="@texture">
     <nop-antiforgery-token />
     @RenderBody()
-    <div id="goToTop"></div>
+    @*<div id="goToTop"></div>*@
     @NopHtml.GenerateScripts(ResourceLocation.Footer)
     @NopHtml.GenerateInlineScripts(ResourceLocation.Footer)
     @Html.Raw(commonSettings.FooterCustomHtml)
