@@ -45,6 +45,18 @@
                                 {
                                     <img src="~/images/gls.jpg" alt="GLS" width="100" height="50">
                                 }
+                                else if (shippingMethod.Name.ToLower().Contains("ups"))
+                                {
+                                    <img src="~/images/ups.jpg" alt="UPS" width="100" height="50">
+                                }
+                                else if (shippingMethod.Name.ToLower().Contains("seur"))
+                                {
+                                    <img src="~/images/seur.jpg" alt="SEUR" width="100" height="50">
+                                }
+                                else if (shippingMethod.Name.ToLower().Contains("mrw"))
+                                {
+                                    <img src="~/images/mrw.jpg" alt="MRW" width="100" height="50">
+                                }
                                 else
                                 {
                                     <img src="~/images/default.jpg" alt="Default Image" width="100" height="50">
