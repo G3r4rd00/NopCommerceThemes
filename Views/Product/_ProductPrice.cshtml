@@ -1,14 +1,14 @@
-﻿@model ProductDetailsModel.ProductPriceModel
+﻿@model ProductDetailsModel
 
 @using Nop.Core
 @using Nop.Core.Domain.Tax
 
 @inject IWorkContext workContext
 
-@if (!Model.CustomerEntersPrice)
+@if (!Model.ProductPrice.CustomerEntersPrice)
 {
-    <div class="prices">
-        @if (Model.CallForPrice)
+    <div class="prices" style="margin-top:30px">
+        @if (Model.ProductPrice.CallForPrice)
         {
             @*call for price*@
             <div class="product-price call-for-price">
@@ -17,56 +17,59 @@
         }
         else
         {
-            if (Model.IsRental)
+            if (Model.ProductPrice.IsRental)
             {
                 <div class="rental-price">
                     <label>@T("Products.Price.RentalPrice"):</label>
-                    <span>@Model.RentalPrice</span>
+                    <span>@Model.ProductPrice.RentalPrice</span>
                 </div>
             }
-            if (!string.IsNullOrWhiteSpace(Model.OldPrice) && string.IsNullOrWhiteSpace(Model.PriceWithDiscount))
+            if (!string.IsNullOrWhiteSpace(Model.ProductPrice.OldPrice) && string.IsNullOrWhiteSpace(Model.ProductPrice.PriceWithDiscount))
             {
                 @*old price*@
                 <div class="old-product-price">
                     <label>@T("Products.Price.OldPrice"):</label>
-                    <span>@Model.OldPrice</span>
+                    <span>@Model.ProductPrice.OldPrice</span>
                 </div>
             }
-            <div class="@if (string.IsNullOrWhiteSpace(Model.PriceWithDiscount))
-                        {
+            <div class="@if (string.IsNullOrWhiteSpace(Model.ProductPrice.PriceWithDiscount))
+         {
                             <text>product-price</text>
                         }
                         else
                         {
                             <text>non-discounted-price</text>
                         }">
-                @if (!string.IsNullOrWhiteSpace(Model.OldPrice) || !string.IsNullOrWhiteSpace(Model.PriceWithDiscount))
+                @if (!string.IsNullOrWhiteSpace(Model.ProductPrice.OldPrice) || !string.IsNullOrWhiteSpace(Model.ProductPrice.PriceWithDiscount))
                 {
                     @*display "Price:" label if we have old price or discounted one*@
-                    <label for="price-value-@(Model.ProductId)">@T("Products.Price"):</label>
+                                            <label for="price-value-@(Model.ProductPrice.ProductId)">@T("Products.Price"):</label>
                 }
                 @*render price*@
-                <span @if (string.IsNullOrWhiteSpace(Model.PriceWithDiscount)) { <text> id="price-value-@(Model.ProductId)" class="price-value-@(Model.ProductId)" </text> }>
-                    @Html.Raw(Model.Price)
-                </span>
-            </div>
-            if (!string.IsNullOrWhiteSpace(Model.PriceWithDiscount))
+                                <span @if (string.IsNullOrWhiteSpace(Model.ProductPrice.PriceWithDiscount))
+                {
+                    <text> id="price-value-@(Model.ProductPrice.ProductId)" class="price-value-@(Model.ProductPrice.ProductId)" </text>
+                }>
+                    @Html.Raw(Model.ProductPrice.Price)
+                                </span>
+                            </div>
+            if (!string.IsNullOrWhiteSpace(Model.ProductPrice.PriceWithDiscount))
             {
                 @*discounted price*@
                 <div class="product-price discounted-price">
                     <label>@T("Products.Price.WithDiscount"):</label>
-                    <span class="price-value-@(Model.ProductId)">
-                        @Html.Raw(Model.PriceWithDiscount)
+                    <span class="price-value-@(Model.ProductPrice.ProductId)">
+                        @Html.Raw(Model.ProductPrice.PriceWithDiscount)
                     </span>
                 </div>
             }
-            if (!string.IsNullOrEmpty(Model.BasePricePAngV))
+            if (!string.IsNullOrEmpty(Model.ProductPrice.BasePricePAngV))
             {
-                <div class="base-price-pangv" id="base-price-pangv-@Model.ProductId">
-                    @Model.BasePricePAngV
+                <div class="base-price-pangv" id="base-price-pangv-@Model.ProductPrice.ProductId">
+                    @Model.ProductPrice.BasePricePAngV
                 </div>
             }
-            if (Model.DisplayTaxShippingInfo)
+            if (Model.ProductPrice.DisplayTaxShippingInfo)
             {
                 var inclTax = await workContext.GetTaxDisplayTypeAsync() == TaxDisplayType.IncludingTax;
                 //tax info is already included in the price (incl/excl tax). that's why we display only shipping info here
@@ -76,5 +79,13 @@
                 </div>
             }
         }
+
     </div>
+
+    @if (!Model.InStock)
+    {
+        <div class="prices product-price call-for-price" style="background-color:darkred;margin-top:30px">
+            <strong>&nbsp;&nbsp;&nbsp;SIN STOCK</strong>
+        </div>
+    }
 }

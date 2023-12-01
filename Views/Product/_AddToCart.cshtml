@@ -1,32 +1,32 @@
-﻿@model ProductDetailsModel.AddToCartModel
+﻿@model ProductDetailsModel
 @using Nop.Core.Domain.Orders
-@if (Model.UpdatedShoppingCartItemId > 0)
+@if (Model.AddToCart.UpdatedShoppingCartItemId > 0)
 {
-    <input asp-for="UpdatedShoppingCartItemId" type="hidden" />
+    <input asp-for="@Model.AddToCart.UpdatedShoppingCartItemId" type="hidden" />
 }
-@if (!Model.DisableBuyButton || Model.CustomerEntersPrice)
+@if (!Model.AddToCart.DisableBuyButton || Model.AddToCart.CustomerEntersPrice)
 {
-    if (!string.IsNullOrEmpty(Model.PreOrderAvailabilityStartDateTimeUserTime))
+    if (!string.IsNullOrEmpty(Model.AddToCart.PreOrderAvailabilityStartDateTimeUserTime))
     {
         <div class="pre-order-availability-date">
             <label>@T("ShoppingCart.PreOrderAvailability"):</label>
-            @Html.Raw(Model.PreOrderAvailabilityStartDateTimeUserTime)
+            @Html.Raw(Model.AddToCart.PreOrderAvailabilityStartDateTimeUserTime)
         </div>
     }
     <div class="add-to-cart">
-        @if (!Model.DisableBuyButton)
+        @if (!Model.AddToCart.DisableBuyButton && Model.InStock)
         {
             <div class="add-to-cart-panel">
-                <label asp-for="EnteredQuantity" asp-postfix=":" class="qty-label"></label>
-                @if (Model.AllowedQuantities.Count > 0)
+                <label asp-for="@Model.AddToCart.EnteredQuantity" asp-postfix=":" class="qty-label"></label>
+                @if (Model.AddToCart.AllowedQuantities.Count > 0)
                 {
-                    <select asp-for="EnteredQuantity" asp-items="Model.AllowedQuantities" id="product_enteredQuantity_@Model.ProductId" class="qty-dropdown" aria-label=@T("Products.Qty.AriaLabel")></select>
+                    <select asp-for="@Model.AddToCart.EnteredQuantity" asp-items="Model.AddToCart.AllowedQuantities" id="product_enteredQuantity_@Model.AddToCart.ProductId" class="qty-dropdown" aria-label=@T("Products.Qty.AriaLabel")></select>
                     <script asp-location="Footer">
                         $(document).ready(function () {
-                            $("#product_enteredQuantity_@Model.ProductId").on("change", function () {
+                            $("#product_enteredQuantity_@Model.AddToCart.ProductId").on("change", function () {
                                 var data = {
-                                    productId: @Model.ProductId,
-                                    quantity: $('#product_enteredQuantity_@Model.ProductId').find(":selected").text()
+                                    productId: @Model.AddToCart.ProductId,
+                                    quantity: $('#product_enteredQuantity_@Model.AddToCart.ProductId').find(":selected").text()
                                 };
                                 $(document).trigger({ type: "product_quantity_changed", changedData: data });
                             });
@@ -35,21 +35,21 @@
                 }
                 else
                 {
-                    <input asp-for="EnteredQuantity" id="product_enteredQuantity_@Model.ProductId" class="qty-input" type="text" aria-label=@T("Products.Qty.AriaLabel")/>
+                    <input asp-for="@Model.AddToCart.EnteredQuantity" id="product_enteredQuantity_@Model.AddToCart.ProductId" class="qty-input" type="text" aria-label=@T("Products.Qty.AriaLabel") />
                     <script asp-location="Footer">
                         //when a customer clicks 'Enter' button we submit the "add to cart" button (if visible)
                         $(document).ready(function() {
-                            $("#@Html.IdFor(model => model.EnteredQuantity)").on("keydown", function(event) {
+                            $("#@Html.IdFor(model => Model.AddToCart.EnteredQuantity)").on("keydown", function(event) {
                                 if (event.keyCode == 13) {
-                                    $("#add-to-cart-button-@Model.ProductId").trigger("click");
+                                    $("#add-to-cart-button-@Model.AddToCart.ProductId").trigger("click");
                                     return false;
                                 }
                             });
 
-                            $("#product_enteredQuantity_@Model.ProductId").on("input propertychange paste", function () {
+                            $("#product_enteredQuantity_@Model.AddToCart.ProductId").on("input propertychange paste", function () {
                                 var data = {
-                                    productId: @Model.ProductId,
-                                    quantity: $('#product_enteredQuantity_@Model.ProductId').val()
+                                    productId: @Model.AddToCart.ProductId,
+                                    quantity: $('#product_enteredQuantity_@Model.AddToCart.ProductId').val()
                                 };
                                 $(document).trigger({ type: "product_quantity_changed", changedData: data });
                             });
@@ -58,24 +58,24 @@
                 }
                 @{
                     var addToCartText = "";
-                    if (Model.UpdatedShoppingCartItemId > 0 && Model.UpdateShoppingCartItemType.HasValue && Model.UpdateShoppingCartItemType.Value == ShoppingCartType.ShoppingCart)
+                    if (Model.AddToCart.UpdatedShoppingCartItemId > 0 && Model.AddToCart.UpdateShoppingCartItemType.HasValue && Model.AddToCart.UpdateShoppingCartItemType.Value == ShoppingCartType.ShoppingCart)
                     {
                         addToCartText = T("ShoppingCart.AddToCart.Update").Text;
                     }
                     else
                     {
                         addToCartText = T("ShoppingCart.AddToCart").Text;
-                        if (Model.IsRental)
+                        if (Model.AddToCart.IsRental)
                         {
                             addToCartText = T("ShoppingCart.Rent").Text;
                         }
-                        if (Model.AvailableForPreOrder)
+                        if (Model.AddToCart.AvailableForPreOrder)
                         {
                             addToCartText = T("ShoppingCart.PreOrder").Text;
                         }
                     }
                     <div class="add-button-wrap">
-                        <button type="button" id="add-to-cart-button-@Model.ProductId" class="button-1 add-to-cart-button" data-productid="@Model.ProductId" onclick="AjaxCart.addproducttocart_details('@Url.RouteUrl("AddProductToCart-Details", new {productId = Model.ProductId, shoppingCartTypeId = (int) ShoppingCartType.ShoppingCart})', '#product-details-form');return false;">@addToCartText</button>
+                        <button type="button" id="add-to-cart-button-@Model.AddToCart.ProductId" class="button-1 add-to-cart-button" data-productid="@Model.AddToCart.ProductId" onclick="AjaxCart.addproducttocart_details('@Url.RouteUrl("AddProductToCart-Details", new {productId = Model.AddToCart.ProductId, shoppingCartTypeId = (int) ShoppingCartType.ShoppingCart})', '#product-details-form');return false;">@addToCartText</button>
                     </div>
                 }
             </div>

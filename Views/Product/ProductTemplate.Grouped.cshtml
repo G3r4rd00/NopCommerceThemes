@@ -215,12 +215,12 @@
                                         @{
                                             var dataDictAddToCart = new ViewDataDictionary(ViewData);
                                             dataDictAddToCart.TemplateInfo.HtmlFieldPrefix = $"addtocart_{variant.Id}";
-                                            @await Html.PartialAsync("_AddToCart", variant.AddToCart, dataDictAddToCart)
+                                            @await Html.PartialAsync("_AddToCart", variant, dataDictAddToCart)
                                         }
                                         @{
                                             var dataDictPrice = new ViewDataDictionary(ViewData);
                                             dataDictPrice.TemplateInfo.HtmlFieldPrefix = $"price_{variant.Id}";
-                                            @await Html.PartialAsync("_ProductPrice", variant.ProductPrice, dataDictPrice)
+                                            @await Html.PartialAsync("_ProductPrice", variant, dataDictPrice)
                                         }
                                         <!--wishlist-->
                                         @{
